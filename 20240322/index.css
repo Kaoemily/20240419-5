@@ -1,0 +1,152 @@
+/* *{
+    border: solid 1px white;
+} */
+
+body{
+    padding: 50px;
+    display: flex;
+    justify-content: center;  /*左右置中*/
+    background-color: #02005b;
+    color: rgba(255, 255, 255, 0.95);
+    font-size: 15px;
+    line-height: 28px; /*行高*/
+    letter-spacing: 1px; /*字距*/
+    font-family: "微軟正黑體", sans-serif; /*字型*/
+}
+.resume{
+    /*讓resume內的兩個div左右呈現*/
+    display: flex;
+    max-width: 950px;
+    border: solid 8px white;
+}
+
+.left{
+    /*占畫面顯示的5/12*/
+    flex: 5;
+    padding-left: 15px;
+    padding-right: 50px;
+    border-right: solid 1px #ff7168;
+}
+
+.right{
+    /*占畫面顯示的7/12*/
+    flex: 7;
+    padding-right: 15px;
+    padding-left: 50px;
+    position: relative;  /*相對位置，設定在right底下的div都以right左上角為座標*/
+}
+
+ul{
+    /*設定每個項目前面不要顯示圓圈或是數字*/
+    list-style: none;
+    /*讓每個項目前面不要有距離*/
+    padding: 0px;    
+
+}
+
+h4{ /*每個block英文標題*/
+    margin: 0px;
+    margin-top: 40px;
+    /*設定文字粗體大小與透明度*/
+    font-weight: 400;
+    opacity: 0.8;
+}
+
+h2{ /*每個block中文標題*/
+    margin: 0px;
+    margin-bottom: 25px;
+    font-size: 400;
+}
+
+h2::after{ /*在HTML有h2指令的文字內容，後面都需要加上以下格式設定*/
+    content: "";
+    width: 20px;
+    height: 8px;
+    background: #ff7168;
+    display: inline-block; /*顯示在同一行*/
+    margin-left: 10px;
+}
+
+a{
+    color: white; /*超連結按鈕文字顏色*/
+    text-decoration: none;  /*去掉文字底線*/ 
+}
+
+.btn{
+    border: solid 3px #ff7168; /*加上框線，比較像按鈕*/
+    padding: 5px 20px; /*內距(上下、左右)*/
+    margin-right: 10px;
+}
+
+.fill{ /*針對btn_fill的連結按鈕做設定*/
+    background-color: #ff7168;
+}
+
+.decoration{
+    width: 300px;
+    height: 140px;
+    background: linear-gradient(to bottom right,#ff5f5f,#ffffae);  /*產生漸層顏色*/
+    border-radius: 70px 0px 0px 70px;  /*畫方塊圓弧(左上、右上、右下、左下)*/
+    position: absolute;  /*絕對位置*/
+    right: 0px;  /*設定絕對位置，距離右邊為0*/
+    top: 50px;  /*設定絕對位置，距離左邊為50*/
+}
+
+.Experience{
+    margin-top: 180px;  /*外距*/
+}
+
+.listExperience li{  /*代表在.listExperience所以li都要遵循階層這樣的格式，所以第一層與第二層的li都要這樣的格式設定*/
+    display: flex;
+    margin-bottom: 10px;
+}
+
+.listExperience li ul{  /*如果加上>，代表在.listExperience下，第一層li才要遵循這樣的格式，第二層以下不做這樣的設定*/
+    padding-left: 10px;  /*li和ul文字中間的內距*/
+    margin-left: 10px; 
+    border-left: solid 4px white;
+}
+
+.circle{
+    width: 50px;
+    height: 50px;
+    background-color: #fff;
+    border-radius: 25px;
+    position: relative;
+    overflow: hidden;  /*超過的範圍隱藏*/
+}
+
+.p90,.p180,.p270,.p360{
+    width: 50%;  /*因為p90在.circle的底下，所以50%代表含意是以circle的寬跟高的50%*/
+    height: 50%;
+    background-color: #ff7168;
+    position: absolute;
+    left: 50%;
+    top: 0;
+}
+
+.p180{
+    top: 50%;
+}
+
+.p270{
+    left: 0;
+    top: 50%;
+}
+
+.p360{
+    left: 0;
+}
+
+.circle::after{
+    content: "";
+    display: block;
+    background-color: #02005b;
+    width: calc( 100% - 20px );  /*clac為一個計算函數，幫你加減乘除*/
+    height: calc( 100% - 20px );
+    border-radius: 50%;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50% , -50%);
+}
